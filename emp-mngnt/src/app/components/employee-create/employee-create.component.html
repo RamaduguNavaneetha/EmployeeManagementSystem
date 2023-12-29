@@ -1,0 +1,113 @@
+<div class="container justify-content-center col-6">
+  <h2>ADD NEW EMPLOYEE</h2>
+  <hr />
+  <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
+    <!--Employee Name control-->
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" formControlName="employeeName" />
+      <div
+        *ngIf="
+          employeeForm.controls['employeeName'].dirty ||
+          employeeForm.controls['employeeName'].touched
+        "
+      >
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeName'].errors?.['required']"
+        >
+          Employee name is required
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeName'].errors?.['pattern']"
+        >
+          Employee name is invalid. Only alpphabets are allowed
+        </div>
+      </div>
+    </div>
+
+    <!--Employee Email control-->
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" formControlName="employeeEmail" />
+      <div
+        *ngIf="
+          employeeForm.controls['employeeEmail'].dirty ||
+          employeeForm.controls['employeeEmail'].touched
+        "
+      >
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeEmail'].errors?.['required']"
+        >
+          Employee email is required
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeEmail'].errors?.['email']"
+        >
+          Employee email is invalid.
+        </div>
+      </div>
+    </div>
+
+    <!--Employee Mobile control-->
+    <div class="mb-3">
+      <label class="form-label">Mobile</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="employeeMobile"
+      />
+      <div
+        *ngIf="
+          employeeForm.controls['employeeMobile'].dirty ||
+          employeeForm.controls['employeeMobile'].touched
+        "
+      >
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeMobile'].errors?.['required']"
+        >
+          Employee mobile is required
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeMobile'].errors?.['pattern']"
+        >
+          Employee mobile is invalid.
+        </div>
+      </div>
+    </div>
+
+    <!--Employee Salary control-->
+    <div class="mb-3">
+      <label class="form-label">Salary</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="employeeSalary"
+      />
+      <div
+        *ngIf="
+          employeeForm.controls['employeeSalary'].dirty ||
+          employeeForm.controls['employeeSalary'].touched
+        "
+      >
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeForm.controls['employeeSalary'].errors?.['required']"
+        >
+          Employee salary is required
+        </div>
+      </div>
+    </div>
+    <input
+      type="submit"
+      value="Add Employee"
+      [disabled]="employeeForm.invalid"
+      class="btn btn-primary"
+    />
+  </form>
+</div>

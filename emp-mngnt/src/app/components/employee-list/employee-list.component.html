@@ -1,0 +1,39 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>MOBILE</th>
+        <th>SALARY</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employeeId }}</td>
+        <td>{{ employee.employeeName }}</td>
+        <td>{{ employee.employeeEmail }}</td>
+        <td>{{ employee.employeeMobile }}</td>
+        <td>{{ employee.employeeSalary }}</td>
+        <td>
+          <button
+            class="btn btn-danger"
+            (click)="deleteEmployee(employee.employeeId)"
+          >
+            DELETE
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-success"
+            (click)="showEdit(employee.employeeId)"
+          >
+            EDIT
+          </button>
+        </td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
